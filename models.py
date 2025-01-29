@@ -30,7 +30,7 @@ class GradeTracker:
         with open(self.filename, 'w') as f:
             json.dump([s.to_dict() for s in self.students.values()], f)
 
-    def add_student():
+    def add_student(self, student):
         self.students[str(student.student_id) ] = student
         self.save_students()
     
@@ -38,3 +38,11 @@ class GradeTracker:
         if str(student_id) in self.students:
             self.students[str(student_id)].grade = new_grade
             self.save_students()
+            
+    def delete_student(self,student_id):
+        if str.str(student_id) in self.students:
+            del self.students[str(student_id)]
+            self.save_students()
+    
+    def get_student(self, student_id):
+        return self.students.get(str(student_id))
