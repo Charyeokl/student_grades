@@ -15,7 +15,7 @@ class Student:
         }
 
 class GradeTracker:
-    def _init_(self, filename='students.json'):
+    def __init__(self, filename='students.json'):
         self.filename = filename
         self.students = self. load_students ()
 
@@ -31,7 +31,7 @@ class GradeTracker:
             json.dump([s.to_dict() for s in self.students.values()], f)
 
     def add_student(self, student):
-        self.students[str(student.student_id) ] = student
+        self.students[str(student.student_id)] = student
         self.save_students()
     
     def update_grade(self,student_id, new_grade):
@@ -40,7 +40,7 @@ class GradeTracker:
             self.save_students()
             
     def delete_student(self,student_id):
-        if str.str(student_id) in self.students:
+        if str(student_id) in self.students:
             del self.students[str(student_id)]
             self.save_students()
     

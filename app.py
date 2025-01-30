@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from models import Student, GradeTracker
 
 app = Flask(__name__)
-grade_tracker = GradeTracker
+grade_tracker = GradeTracker()
 @app.route('/')
 def index():
     return render_template('index.html')
